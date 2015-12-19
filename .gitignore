@@ -2,3 +2,5 @@ cache/
 data/
 nb_edit-*
 blog.conf
+tidy.log
+tidy.html

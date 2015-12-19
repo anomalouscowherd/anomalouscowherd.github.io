@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-        <?xml-stylesheet type="text/css" href="https://anomalouscowherd.github.io//styles/feed.css"?>
-<rss version="2.0"
- xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
- xmlns:dc="http://purl.org/dc/elements/1.1/"
- xmlns:admin="http://webns.net/mvcb/"
- xmlns:atom="http://www.w3.org/2005/Atom"
->
+<?xml-stylesheet type="text/css" href="https://anomalouscowherd.github.io/styles/feed.css"?>
+<rss version="2.0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:admin="http://webns.net/mvcb/" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<title>StockFighter blog by (The Last) StarFighter</title>
-<atom:link href="https://anomalouscowherd.github.io//rss.xml" rel="self" type="application/rss+xml" />
-<link>https://anomalouscowherd.github.io/</link>
-<description>This is a blog about the programming challenge StockFighter</description>
+<title>(the Last) StockFighter</title>
+<atom:link href="https://anomalouscowherd.github.io/rss.xml" rel="self" type="application/rss+xml" />
+<link>https://anomalouscowherd.github.io</link>
+<description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
-<dc:creator>(The Last) Starfighter</dc:creator>
-<dc:date>2015-12-19T19:43:05+01:00</dc:date>
+<dc:creator>StarFighter</dc:creator>
+<dc:date>2015-12-19T22:28:19+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
-
 <item>
-<link>https://anomalouscowherd.github.io//archives/2015/12/19/stockfighter_blog_by_starfighter/index.html</link>
-<guid isPermaLink="true">https://anomalouscowherd.github.io//archives/2015/12/19/stockfighter_blog_by_starfighter/index.html</guid>
+<link>https://anomalouscowherd.github.io/archives/2015/12/19/stockfighter_blog_by_starfighter/index.html</link>
+<guid isPermaLink="true">https://anomalouscowherd.github.io/archives/2015/12/19/stockfighter_blog_by_starfighter/index.html</guid>
 <title>Stockfighter blog by StarFighter</title>
 <dc:date>2015-12-19T15:21:10+01:00</dc:date>
 <dc:creator>StarFighter</dc:creator>
-<dc:subject> nanoblogger-help</dc:subject>
-<description><![CDATA[ <p>This is my blog about the StockFighter on-line programming
+<dc:subject>nanoblogger-help, stockfighter</dc:subject>
+<description>
+<![CDATA[ <p>This is my blog about the StockFighter on-line programming
       challenge. <a  title="StockFighter online stocktrading/programming game."
 
          href="https://www.stockfighter.io/">Stockfighter</a> is an online
@@ -43,8 +38,8 @@
     <p><br>
     </p>
     <b>Shalom Aleikhem</b>,<br>
-    StarFighter]]></description>
-
+    StarFighter]]>
+</description>
 </item>
 </channel>
 </rss>
