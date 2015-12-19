@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<?xml-stylesheet type="text/css" href="https://anomalouscowherd.github.io//styles/feed.css"?>
+
+
+<title type="html">StockFighter blog by (The Last) StarFighter</title>
+<subtitle type="html">This is a blog about the programming challenge StockFighter</subtitle>
+<link rel="alternate" type="text/html" href="https://anomalouscowherd.github.io/"/>
+<link rel="self" type="application/atom+xml" href="https://anomalouscowherd.github.io//atom.xml"/>
+<updated>2015-12-19T19:43:05+01:00</updated>
+<author>
+<name>(The Last) Starfighter</name>
+<uri>https://anomalouscowherd.github.io/</uri>
+</author>
+<id>https://anomalouscowherd.github.io//</id>
+<generator uri="http://nanoblogger.sourceforge.net" version="3.5-RC1">
+NanoBlogger
+</generator>
+
+<entry>
+<title type="html">Stockfighter blog by StarFighter</title>
+<author>
+<name>StarFighter</name>
+</author>
+<link rel="alternate" type="text/html" href="https://anomalouscowherd.github.io//archives/2015/12/19/stockfighter_blog_by_starfighter/index.html"/>
+
+<id>https://anomalouscowherd.github.io//archives/2015/12/19/stockfighter_blog_by_starfighter/index.html</id>
+<published>2015-12-19T15:21:10+01:00</published>
+<updated>2015-12-19T15:21:10+01:00</updated>
+<category term="nanoblogger-help" />
+<content type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+ <p>This is my blog about the StockFighter on-line programming
+      challenge. <a  title="StockFighter online stocktrading/programming game."
+
+         href="https://www.stockfighter.io/">Stockfighter</a> is an online
+      programming "game" that requires you to write an automated trading system
+      ( or several of them ).&nbsp; This will be a difficult assignment, so I am
+      writing this blog to serve as a quick reference and to motivate myself to
+      complete the challenge.&nbsp; The blog will almost certainly contain
+      spoilers so don't read it if you want to find the answers yourself.&nbsp;
+      My technique will evolve as I go along so I don't know what language I
+      will write in or what systems I will use.&nbsp; The only thing I am sure
+      of is that I do not wish to use any hints or assistance.&nbsp; I have
+      almost no experience in programming or stock markets so this will be a
+      real education.&nbsp; I expect that it will take me a long time to
+      finish.&nbsp; I hope that I will not be the last one to finish the
+      challenge, but if I am the last one, then I will become "The Last
+      StarFighter" ;-)</p>
+    <p><br>
+    </p>
+    <b>Shalom Aleikhem</b>,<br>
+    StarFighter
+</div>
+</content>
+
+</entry>
+
+</feed>
