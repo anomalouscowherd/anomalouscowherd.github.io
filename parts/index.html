@@ -1,4 +1,88 @@
 <div class="item">
+	<a id="e2015-12-20T01_53_57.txt"></a>
+	<h2 class="date">2015-12-20 01:53:57</h2>
+	<div class="blogbody">
+		<h3 class="title">First Day and First Level</h3>
+		<div class="item-description">
+			          <p>If you are making a game about programming, it seems to me that you
+            should make it as accessible as possible.  This is not a rant.  I
+            know next to nothing about programming and if someone introduces me
+            to a new tool I don't reject it out of hand. However the very first
+            level introduces me to the StockFighter API with this text:</p>
+          <p><a  ng-click="choose($index)"  href="https://starfighter.readme.io/docs/place-new-order"><span
+
+                 ng-if="!tab.status"  class="ng-scope ng-binding">Shell </span>
+            </a> </p>
+          <div  ng-show="$index==current"  ng-repeat="tab in data.codes track by $id($index)"
+
+             class="ng-scope">
+            <pre  data-mode="shell"  class="cm-s-neo"  ng-if="data.codes[$index].code != &quot;&quot;"
+
+ style="height: 582px;"><span  class="cm-comment"># Let's try something different this time.  Sure, you could interact with the API</span>
+<span  class="cm-comment"># in an actual programming language, but let me introduce you to httpie, a very</span>
+<span  class="cm-comment"># cool tool.</span>
+
+<span  class="cm-comment"># httpie is like curl, except much nicer to use.  See: https://github.com/jkbrzt/httpie</span>
+
+<span  class="cm-comment"># You can install it via: </span>
+<span  class="cm-comment"># brew install httpie</span>
+<span  class="cm-comment"># apt-get install httpie</span>
+<span  class="cm-comment"># yum install httpie</span>
+
+<span  class="cm-comment"># We'll start by creating a file representing our JSON request, like:</span>
+
+<span  class="cm-def">$ nano</span> /tmp/order.json
+
+<span  class="cm-comment"># Copy/paste in:</span>
+
+{
+  <span  class="cm-string">"account"</span>: <span  class="cm-string">"MST92145671"</span>,
+  <span  class="cm-string">"venue"</span>: <span  class="cm-string">"LOBHEX"</span>,
+  <span  class="cm-string">"stock"</span>: <span  class="cm-string">"LPEI"</span>,
+  <span  class="cm-string">"qty"</span>: <span  class="cm-number">100</span>,
+  <span  class="cm-string">"direction"</span>: <span  class="cm-string">"buy"</span>,
+  <span  class="cm-string">"orderType"</span>: <span  class="cm-string">"market"</span> 
+}
+
+<span  class="cm-comment"># Got that ready?  Great, here's httpie magic:</span>
+
+<span  class="cm-def">$ http</span> POST https://api.stockfighter.io/ob/api/venues/LOBHEX/stocks/LPEI/orders <span
+
+ class="cm-string">'X-Starfighter-Authorization:copy-and-paste-your-API-key-here'</span> &lt; /tmp/order.json
+
+<span  class="cm-comment"># Now isn't that so much nicer than curl?</span>
+<span  class="cm-comment"># No unnecessary headers (the Accept: application/json is implict.)</span>
+<span  class="cm-comment"># You can inspect the requests quickly, with syntax highlighting.</span>
+
+<span  class="cm-comment"># This is frequently useful when you're exploring a novel API.  Try it out!</span>
+<span  class="cm-comment"># Most developers, after they get a handle on the endpoints, will want to</span>
+<span  class="cm-comment"># write a more robust program in their language of choice, but httpie is</span>
+<span  class="cm-comment"># a good choice for interactive programming when you want to figure out</span>
+<span  class="cm-comment"># exactly what is happening when e.g. a library isn't working as expected.<br /><br /></span> </pre></div>
+          <p><br /></p><p>Cool Right?   I just put together a new virtual machine and got this blog software working.  Now I want to try this API thingy so lets Fire up that httpie and see what happens!</p><p><code>[root@sl7-vm ~]# yum install httpie<br />Loaded plugins: langpacks<br />No package httpie available.<br />Error: Nothing to do</code></p>
+          <p>So I'm not easily dissuaded.  I check out the web site <a  href="https://github.com/jkbrzt/httpie"
+
+ title="HTTPIE cURL type program">here.</a></p>
+          <p>It says you can use something called "pip" if your favorite yum repo doesn't happen to have hippie in it. Let's try that:</p><p><code>[root@sl7-vm ~]# pip<br />-bash: pip: command not found</code></p><p>Hummm....</p><p><code>[root@sl7-vm ~]# easy_install pip<br />Searching for pip<br />Reading https://pypi.python.org/simple/pip/<br />Best match: pip 7.1.2<br />Downloading https://pypi.python.org/packages/source/p/pip/pip-7.1.2.tar.gz#md5=3823d2343d9f3aaab21cf9c917710196<br />Processing pip-7.1.2.tar.gz<br />Writing /tmp/easy_install-jC2noC/pip-7.1.2/setup.cfg<br />Running pip-7.1.2/setup.py -q bdist_egg --dist-dir /tmp/easy_install-jC2noC/pip-7.1.2/egg-dist-tmp-tBPFxY<br />warning: no previously-included files found matching '.coveragerc'<br />warning: no previously-included files found matching '.mailmap'<br />warning: no previously-included files found matching '.travis.yml'<br />warning: no previously-included files found matching 'pip/_vendor/Makefile'<br />warning: no previously-included files found matching 'tox.ini'<br />warning: no previously-included files found matching 'dev-requirements.txt'<br />no previously-included directories found matching '.travis'<br />no previously-included directories found matching 'docs/_build'<br />no previously-included directories found matching 'contrib'<br />no previously-included directories found matching 'tasks'<br />no previously-included directories found matching 'tests'<br />Adding pip 7.1.2 to easy-install.pth file<br />Installing pip script to /usr/bin<br />Installing pip2.7 script to /usr/bin<br />Installing pip2 script to /usr/bin<br /><br />Installed /usr/lib/python2.7/site-packages/pip-7.1.2-py2.7.egg<br />Processing dependencies for pip<br />Finished processing dependencies for pip<br /></code></p><p><code>[root@sl7-vm ~]# pip install --upgrade pip setuptools<br />/usr/lib/python2.7/site-packages/pip-7.1.2-py2.7.egg/pip/_vendor/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.<br />  InsecurePlatformWarning<br />Requirement already up-to-date: pip in /usr/lib/python2.7/site-packages/pip-7.1.2-py2.7.egg<br />Collecting setuptools<br />  Downloading setuptools-19.1.1-py2.py3-none-any.whl (463kB)<br />    100% |████████████████████████████████| 466kB 330kB/s<br />Installing collected packages: setuptools<br />  Found existing installation: setuptools 0.9.8<br />    Uninstalling setuptools-0.9.8:<br />      Successfully uninstalled setuptools-0.9.8<br />Successfully installed setuptools-19.1.1<br />/usr/lib/python2.7/site-packages/pip-7.1.2-py2.7.egg/pip/_vendor/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.<br />  InsecurePlatformWarning<br /></code></p><p><code>[root@sl7-vm ~]# pip install --upgrade httpie<br />Collecting httpie<br />/usr/lib/python2.7/site-packages/pip-7.1.2-py2.7.egg/pip/_vendor/requests/packages/urllib3/util/ssl_.py:90: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. For more information, see https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning.<br />  InsecurePlatformWarning<br />  Downloading httpie-0.9.2-py2.py3-none-any.whl (66kB)<br />    100% |████████████████████████████████| 69kB 556kB/s<br />Collecting requests>=2.3.0 (from httpie)<br />  Downloading requests-2.9.0-py2.py3-none-any.whl (500kB)<br />    100% |████████████████████████████████| 503kB 235kB/s<br />Collecting Pygments>=1.5 (from httpie)<br />  Downloading Pygments-2.0.2-py2-none-any.whl (672kB)<br />    100% |████████████████████████████████| 675kB 464kB/s<br />Installing collected packages: requests, Pygments, httpie<br />Successfully installed Pygments-2.0.2 httpie-0.9.2 requests-2.9.0<br />[root@sl7-vm ~]#</code></p><p><br /></p><p>So what happened there?  It looks to me like I just installed a package outside of the rpm database.  In general I try to avoid doing that.  It can lead to a situation known as "Dependency Hell".  This was why the yum system was introduced.  The intention was to avoid having to install packages from source.  You will note that the pip package and the httpie package spray files all over the place.  In addition this new POS ( Piece of Software) has introduced a security vulnerability into my relatively clean box.  It is a pretty minor one, but it is not simple to fix.  I am running <a
+
+ href="https://www.scientificlinux.org/"  title="Scientific Linux">Scientific Linux</a>, a RedHat derivative. This is important because RedHat uses python for all of it's system software. Leaving aside for the moment advisability of writing crucial system software in an interpreted language, lets look at this security issue . The message I get when I try to install httpie says this:</p><p><code>InsecurePlatformWarning: A true SSLContext object is not 
+available. This prevents urllib3 from configuring SSL appropriately and 
+may cause certain SSL connections to fail. For more information, see 
+<a  href="https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning"
+
+ title="insecure platform warning"><span  style="font-weight: bold; text-decoration: underline;">https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning</span></a>.</code></p>
+          <p>The linked page tells me that my version of python needs a tweak (or three) to handle HTTPS requests. The recommended fix is to "upgrade" python to version 2.7.9 ( am running Python 2.7.5 ).  I downloaded this OS today.  It still has that new car smell. I will not "upgrade" python.  </p><p><br /></p><p>Long story short, This is a crappy tool.  Why didn't you show an example using the tools that come with the OS?  In my case that includes wget, cURL and ... what else? elinks maybe? There is another example on the page that uses ruby.  I will write about that next time.</p><p>-StarFighter</p><p><br /></p>
+		</div>
+	</div>
+
+	<div class="posted">
+		<br />Posted by <span class="item-creator">StarFighter</span>
+| <a class="link" href="./archives/2015/12/20/first_day_and_first_level/index.html">Permanent link</a>
+
+<!-- <br /><a href="./archives/2015/12/20/first_day_and_first_level/index.html#comments">Comments</a> -->
+	</div>
+</div>
+<div class="item">
 	<a id="e2015-12-19T15_21_10.txt"></a>
 	<h2 class="date">2015-12-19 15:21:10</h2>
 	<div class="blogbody">
