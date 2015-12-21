@@ -1,0 +1,167 @@
+<h2 class="date">
+	2015-12-21 21:54:32
+</h2>
+<div class="blogbody">
+	<a id="e2015-12-21T21_54_32.txt"></a>
+	<h3 class="title">View From Mount Stupid</h3>
+	I was dealing with family issues most of yesterday and today, but I am
+    still plugging away at this. <br>
+    <br>
+    I am now in my third day of the StockFighter challenge. two days ago you
+    might recall, I managed to get the automated web browser httpie installed
+    but it seems to have some problems with SSL.&nbsp; I will spend a few cycles
+    resolving those issues, but for the time being I want to focus on the other
+    method mentioned in the API guide using the ruby language. Ruby is an
+    interesting language. It was developed in Japan and the main developers
+    speak Japanese.&nbsp; Some of the discussion on the forums is exclusively in
+    Japanese.&nbsp; This would not bother me if the language was in a stable
+    condition, like for instance C language, but it is not.&nbsp; Ruby is in
+    active development 20 years after it was released.&nbsp; Some people call
+    this "remaining relevant". I call it gratuitous fluff.&nbsp; So, back to the
+    challenge. The ruby program to handle the first trade is <a  href="https://starfighter.readme.io/docs/getting-started">here</a>:<br>
+    <a  title="https://starfighter.readme.io/docs/getting-started"  href="https://starfighter.readme.io/docs/getting-started">https://starfighter.readme.io/docs/getting-started<br>
+    </a><br>
+    I decided to try it. So here goes:<br>
+    <br>
+    <br>
+    <code>[starfighter@sl7-vm stockfighter]$ ruby first-trade.rb<br>
+      /usr/share/rubygems/rubygems/core_ext/kernel_require.rb:55:in `require':
+      cannot load such file -- httparty (LoadError)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; from
+      /usr/share/rubygems/rubygems/core_ext/kernel_require.rb:55:in `require'<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; from first-trade.rb:2:in
+      `&lt;main&gt;'</code><br>
+    <br>
+    Let's read the docs ... <br>
+    <br>
+    <code>[starfighter@sl7-vm stockfighter]$ sudo gem install httparty<br>
+      [sudo] password for starfighter:<br>
+      <br>
+      Fetching: json-1.8.3.gem (100%)<br>
+      Building native extensions.&nbsp; This could take a while...<br>
+      ERROR:&nbsp; Error installing httparty:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ERROR: Failed to build gem
+      native extension.<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; /usr/bin/ruby extconf.rb<br>
+      mkmf.rb can't find header files for ruby at /usr/share/include/ruby.h</code><br>
+    <br>
+    Poo!<br>
+    <br>
+    <br>
+    [<code>root@sl7-vm ~]# yum install ruby-devel rubygems-devel
+      rubygem-net-http-persistent ruby-doc rubygem-json</code><br>
+    <br>
+    [snip]<br>
+    <br>
+    <code>Installed:<br>
+      &nbsp; ruby-devel.x86_64
+      0:2.0.0.598-25.el7_1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      ruby-doc.noarch 0:2.0.0.598-25.el7_1<br>
+      &nbsp; rubygem-net-http-persistent.noarch
+      0:2.8-5.el7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      rubygems-devel.noarch 0:2.0.14-25.el7_1<br>
+      <br>
+      Complete!<br>
+      [root@sl7-vm ~]# gem install httparty<br>
+      Fetching: json-1.8.3.gem (100%)<br>
+      Building native extensions.&nbsp; This could take a while...<br>
+      ERROR:&nbsp; Error installing httparty:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ERROR: Failed to build gem
+      native extension.<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; /usr/bin/ruby extconf.rb<br>
+      creating Makefile<br>
+      <br>
+      make "DESTDIR="<br>
+      gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.
+      -DJSON_GENERATOR&nbsp;&nbsp;&nbsp; -fPIC -O2 -g -pipe -Wall
+      -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong
+      --param=ssp-buffer-size=4 -grecord-gcc-switches -mtune=generic -fPIC -m64
+      -o generator.o -c generator.c<br>
+      make: gcc: Command not found<br>
+      make: *** [generator.o] Error 127</code><br>
+    <br>
+    Double poo! After 20 years don't you think this POS( Piece of Software )
+    should be self hosting?<br>
+    <br>
+    <br>
+    <code>[root@sl7-vm ~]# yum install gcc<br>
+      Loaded plugins: langpacks<br>
+      Resolving Dependencies<br>
+      <br>
+      Installed:<br>
+      &nbsp; gcc.x86_64 0:4.8.3-9.el7<br>
+      <br>
+      Dependency Installed:<br>
+      &nbsp; cpp.x86_64
+      0:4.8.3-9.el7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      glibc-devel.x86_64 0:2.17-78.el7 glibc-headers.x86_64 0:2.17-78.el7<br>
+      &nbsp; kernel-headers.x86_64 0:3.10.0-229.20.1.el7 libmpc.x86_64
+      0:1.0.1-3.el7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mpfr.x86_64 0:3.1.1-4.el7<br>
+      <br>
+      Complete!<br>
+      [root@sl7-vm ~]# gem install httparty<br>
+      Building native extensions.&nbsp; This could take a while...<br>
+      Successfully installed json-1.8.3<br>
+      Fetching: multi_xml-0.5.5.gem (100%)<br>
+      Successfully installed multi_xml-0.5.5<br>
+      Fetching: httparty-0.13.7.gem (100%)<br>
+      <span  style="font-weight: bold; color: rgb(255, 0, 0);">When you
+        HTTParty, you must party hard!</span><br>
+      Successfully installed httparty-0.13.7<br>
+      Parsing documentation for json-1.8.3<br>
+      Installing ri documentation for json-1.8.3<br>
+      Parsing documentation for multi_xml-0.5.5<br>
+      Installing ri documentation for multi_xml-0.5.5<br>
+      Parsing documentation for httparty-0.13.7<br>
+      Installing ri documentation for httparty-0.13.7</code><br>
+    <br>
+    Whee!!!!&nbsp; Now we can <span  style="font-family: monospace;"><span  style="font-family: serif;">party</span></span>!<br>
+    <br>
+    <code>[starfighter@sl7-vm stockfighter]$ ruby first-trade.rb<br>
+      {<br>
+      &nbsp; "ok": true,<br>
+      &nbsp; "symbol": "RKI",<br>
+      &nbsp; "venue": "YLMEX",<br>
+      &nbsp; "direction": "buy",<br>
+      &nbsp; "originalQty": 25,<br>
+      &nbsp; "qty": 25,<br>
+      &nbsp; "price": 8700,<br>
+      &nbsp; "orderType": "limit",<br>
+      &nbsp; "id": 5157,<br>
+      &nbsp; "account": "&lt;redacted&gt;",<br>
+      &nbsp; "ts": "2015-12-20T18:52:29.266964823Z",<br>
+      &nbsp; "fills": [],<br>
+      &nbsp; "totalFilled": 0,<br>
+      &nbsp; "open": true<br>
+      }</code><br>
+    <br>
+    So I'm making progress.&nbsp; I'm wondering how many people will choose to
+    fight this octopus to get to the stage of being able to launch an
+    order.&nbsp; I feel like I am junking up my machine and introducing security
+    holes so I can run some idiosyncratic garbage that will be replaced in a few
+    days.&nbsp; That is not a exaggeration. Ruby 2.2.4 was released Dec. 16,
+    2015.&nbsp; You can bet that most of those "gems" will need to be re-written
+    to cope.&nbsp; The last version of C was released in 2011.&nbsp; If you
+    where a C programmer you might not have noticed.&nbsp; The C language is
+    standardized ( via ANSI in 1989 or ISO in 1990 ).&nbsp; Your programs would
+    continue to work without rewrites.<br>
+    <br>
+    I read an article yesterday about <a  href="http://www.zerohedge.com/news/2015-12-19/2015-year-review-scenic-vistas-mount-stupid">Mount
+      Stupid</a>:<br>
+    <img  alt="mount stupid"  src="file:///C:/Users/dave/Desktop/mount-stupid.jpg"><br>
+    <br>
+    The premise is that people that know nothing about a subject will broadcast
+    their ignorance to the world.&nbsp; So I am just climbing the front side of
+    Mount Stupid right now.&nbsp; I expect the decent to be a long trip so you
+    can expect to hear from me for a long time. <br>
+    <br>
+</div>
+
+<div class="posted">
+	<br />Posted by StarFighter
+| <a class="link" href="../../../../../archives/2015/12/21/view_from_mount_stupid/index.html">Permanent link</a>
+
+<!-- <br /><a href="../../../../../archives/2015/12/21/view_from_mount_stupid/index.html#comments">Comments</a> -->
+</div>

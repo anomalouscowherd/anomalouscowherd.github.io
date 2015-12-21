@@ -21,8 +21,10 @@ href="../../../atom.xml" />
 href="../../../rss.xml" />
 <style type="text/css">
 /*<![CDATA[*/
- span.c2 {font-weight: bold; text-decoration: underline;}
- pre.c1 {height: 582px;}
+ span.c4 {font-weight: bold; text-decoration: underline;}
+ pre.c3 {height: 582px;}
+ span.c2 {font-family: monospace}
+ span.c1 {font-weight: bold; color: rgb(255, 0, 0);}
 /*]]>*/
 </style>
 </head>
@@ -79,7 +81,8 @@ on-line trading game StockFighter</span></div>
 <tr>
 <td><span class="calendar"><a href=
 "../../../archives/2015/12/index.html#e2015-12-20T01_53_57.txt">20</a></span></td>
-<td><span class="calendar">21</span></td>
+<td><span class="calendar"><a href=
+"../../../archives/2015/12/index.html#e2015-12-21T21_54_32.txt">21</a></span></td>
 <td><span class="calendar">22</span></td>
 <td><span class="calendar">23</span></td>
 <td><span class="calendar">24</span></td>
@@ -101,6 +104,185 @@ on-line trading game StockFighter</span></div>
 "../../../archives/index.html">Archives</a> &gt; <a href=
 "../../../archives/2015/index.html">2015</a> &gt;<br />
 12</div>
+<div class="item"><a id="e2015-12-21T21_54_32.txt"></a>
+<h2 class="date">2015-12-21 21:54:32</h2>
+<div class="blogbody">
+<h3 class="title">View From Mount Stupid</h3>
+<div class="item-description">I was dealing with family issues most
+of yesterday and today, but I am still plugging away at this.<br />
+<br />
+I am now in my third day of the StockFighter challenge. two days
+ago you might recall, I managed to get the automated web browser
+httpie installed but it seems to have some problems with SSL.&#160;
+I will spend a few cycles resolving those issues, but for the time
+being I want to focus on the other method mentioned in the API
+guide using the ruby language. Ruby is an interesting language. It
+was developed in Japan and the main developers speak
+Japanese.&#160; Some of the discussion on the forums is exclusively
+in Japanese.&#160; This would not bother me if the language was in
+a stable condition, like for instance C language, but it is
+not.&#160; Ruby is in active development 20 years after it was
+released.&#160; Some people call this "remaining relevant". I call
+it gratuitous fluff.&#160; So, back to the challenge. The ruby
+program to handle the first trade is <a href=
+"https://starfighter.readme.io/docs/getting-started">here</a>:<br />
+
+<a title="https://starfighter.readme.io/docs/getting-started" href=
+"https://starfighter.readme.io/docs/getting-started">https://starfighter.readme.io/docs/getting-started<br />
+</a><br />
+I decided to try it. So here goes:<br />
+<br />
+<br />
+<code>[starfighter@sl7-vm stockfighter]$ ruby first-trade.rb<br />
+/usr/share/rubygems/rubygems/core_ext/kernel_require.rb:55:in
+`require': cannot load such file -- httparty (LoadError)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; from
+/usr/share/rubygems/rubygems/core_ext/kernel_require.rb:55:in
+`require'<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; from first-trade.rb:2:in
+`&lt;main&gt;'</code><br />
+<br />
+Let's read the docs ...<br />
+<br />
+<code>[starfighter@sl7-vm stockfighter]$ sudo gem install
+httparty<br />
+[sudo] password for starfighter:<br />
+<br />
+Fetching: json-1.8.3.gem (100%)<br />
+Building native extensions.&#160; This could take a while...<br />
+ERROR:&#160; Error installing httparty:<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; ERROR: Failed to build
+gem native extension.<br />
+<br />
+&#160;&#160;&#160; /usr/bin/ruby extconf.rb<br />
+mkmf.rb can't find header files for ruby at
+/usr/share/include/ruby.h</code><br />
+<br />
+Poo!<br />
+<br />
+<br />
+[<code>root@sl7-vm ~]# yum install ruby-devel rubygems-devel
+rubygem-net-http-persistent ruby-doc rubygem-json</code><br />
+<br />
+[snip]<br />
+<br />
+<code>Installed:<br />
+&#160; ruby-devel.x86_64
+0:2.0.0.598-25.el7_1&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+ruby-doc.noarch 0:2.0.0.598-25.el7_1<br />
+&#160; rubygem-net-http-persistent.noarch
+0:2.8-5.el7&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+rubygems-devel.noarch 0:2.0.14-25.el7_1<br />
+<br />
+Complete!<br />
+[root@sl7-vm ~]# gem install httparty<br />
+Fetching: json-1.8.3.gem (100%)<br />
+Building native extensions.&#160; This could take a while...<br />
+ERROR:&#160; Error installing httparty:<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; ERROR: Failed to build
+gem native extension.<br />
+<br />
+&#160;&#160;&#160; /usr/bin/ruby extconf.rb<br />
+creating Makefile<br />
+<br />
+make "DESTDIR="<br />
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include
+-I. -DJSON_GENERATOR&#160;&#160;&#160; -fPIC -O2 -g -pipe -Wall
+-Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong
+--param=ssp-buffer-size=4 -grecord-gcc-switches -mtune=generic
+-fPIC -m64 -o generator.o -c generator.c<br />
+make: gcc: Command not found<br />
+make: *** [generator.o] Error 127</code><br />
+<br />
+Double poo! After 20 years don't you think this POS( Piece of
+Software ) should be self hosting?<br />
+<br />
+<br />
+<code>[root@sl7-vm ~]# yum install gcc<br />
+Loaded plugins: langpacks<br />
+Resolving Dependencies<br />
+<br />
+Installed:<br />
+&#160; gcc.x86_64 0:4.8.3-9.el7<br />
+<br />
+Dependency Installed:<br />
+&#160; cpp.x86_64
+0:4.8.3-9.el7&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+glibc-devel.x86_64 0:2.17-78.el7 glibc-headers.x86_64
+0:2.17-78.el7<br />
+&#160; kernel-headers.x86_64 0:3.10.0-229.20.1.el7 libmpc.x86_64
+0:1.0.1-3.el7&#160;&#160;&#160;&#160;&#160; mpfr.x86_64
+0:3.1.1-4.el7<br />
+<br />
+Complete!<br />
+[root@sl7-vm ~]# gem install httparty<br />
+Building native extensions.&#160; This could take a while...<br />
+Successfully installed json-1.8.3<br />
+Fetching: multi_xml-0.5.5.gem (100%)<br />
+Successfully installed multi_xml-0.5.5<br />
+Fetching: httparty-0.13.7.gem (100%)<br />
+<span class="c1">When you HTTParty, you must party
+hard!</span><br />
+Successfully installed httparty-0.13.7<br />
+Parsing documentation for json-1.8.3<br />
+Installing ri documentation for json-1.8.3<br />
+Parsing documentation for multi_xml-0.5.5<br />
+Installing ri documentation for multi_xml-0.5.5<br />
+Parsing documentation for httparty-0.13.7<br />
+Installing ri documentation for httparty-0.13.7</code><br />
+<br />
+Whee!!!!&#160; Now we can <span class="c2">party</span>!<br />
+<br />
+<code>[starfighter@sl7-vm stockfighter]$ ruby first-trade.rb<br />
+{<br />
+&#160; "ok": true,<br />
+&#160; "symbol": "RKI",<br />
+&#160; "venue": "YLMEX",<br />
+&#160; "direction": "buy",<br />
+&#160; "originalQty": 25,<br />
+&#160; "qty": 25,<br />
+&#160; "price": 8700,<br />
+&#160; "orderType": "limit",<br />
+&#160; "id": 5157,<br />
+&#160; "account": "&lt;redacted&gt;",<br />
+&#160; "ts": "2015-12-20T18:52:29.266964823Z",<br />
+&#160; "fills": [],<br />
+&#160; "totalFilled": 0,<br />
+&#160; "open": true<br />
+}</code><br />
+<br />
+So I'm making progress.&#160; I'm wondering how many people will
+choose to fight this octopus to get to the stage of being able to
+launch an order.&#160; I feel like I am junking up my machine and
+introducing security holes so I can run some idiosyncratic garbage
+that will be replaced in a few days.&#160; That is not a
+exaggeration. Ruby 2.2.4 was released Dec. 16, 2015.&#160; You can
+bet that most of those "gems" will need to be re-written to
+cope.&#160; The last version of C was released in 2011.&#160; If
+you where a C programmer you might not have noticed.&#160; The C
+language is standardized ( via ANSI in 1989 or ISO in 1990 ).&#160;
+Your programs would continue to work without rewrites.<br />
+<br />
+I read an article yesterday about <a href=
+"http://www.zerohedge.com/news/2015-12-19/2015-year-review-scenic-vistas-mount-stupid">
+Mount Stupid</a>:<br />
+<img alt="mount stupid" src=
+"file:///C:/Users/dave/Desktop/mount-stupid.jpg" /><br />
+<br />
+The premise is that people that know nothing about a subject will
+broadcast their ignorance to the world.&#160; So I am just climbing
+the front side of Mount Stupid right now.&#160; I expect the decent
+to be a long trip so you can expect to hear from me for a long
+time.<br />
+<br /></div>
+</div>
+<div class="posted"><br />
+Posted by <span class="item-creator">StarFighter</span> | <a class=
+"link" href=
+"../../../archives/2015/12/21/view_from_mount_stupid/index.html">Permanent
+link</a> 
+<!-- <br /><a href="../../../archives/2015/12/21/view_from_mount_stupid/index.html#comments">Comments</a> --></div>
+</div>
 <div class="item"><a id="e2015-12-20T01_53_57.txt"></a>
 <h2 class="date">2015-12-20 01:53:57</h2>
 <div class="blogbody">
@@ -116,7 +298,7 @@ level introduces me to the StockFighter API with this text:</p>
 "!tab.status" class="ng-scope ng-binding">Shell</span></a></p>
 <div ng-show="$index==current" ng-repeat=
 "tab in data.codes track by $id($index)" class="ng-scope">
-<pre data-mode="shell" class="cm-s-neo c1" ng-if=
+<pre data-mode="shell" class="cm-s-neo c3" ng-if=
 "data.codes[$index].code != &quot;&quot;">
 <span class=
 "cm-comment"># Let's try something different this time.  Sure, you could interact with the API</span>
@@ -302,7 +484,7 @@ and may cause certain SSL connections to fail. For more
 information, see <a href=
 "https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning"
 title="insecure platform warning"><span class=
-"c2">https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning</span></a>.</code></p>
+"c4">https://urllib3.readthedocs.org/en/latest/security.html#insecureplatformwarning</span></a>.</code></p>
 <p>The linked page tells me that my version of python needs a tweak
 (or three) to handle HTTPS requests. The recommended fix is to
 "upgrade" python to version 2.7.9 ( am running Python 2.7.5 ). I
