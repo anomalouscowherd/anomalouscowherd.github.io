@@ -8,7 +8,7 @@
 <description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
 <dc:creator>StarFighter</dc:creator>
-<dc:date>2015-12-21T21:54:34+01:00</dc:date>
+<dc:date>2015-12-21T22:03:48+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
 <item>
 <link>https://anomalouscowherd.github.io/archives/2015/12/21/view_from_mount_stupid/index.html</link>
@@ -130,7 +130,7 @@
       Parsing documentation for httparty-0.13.7<br>
       Installing ri documentation for httparty-0.13.7</code><br>
     <br>
-    Whee!!!!&nbsp; Now we can <span  style="font-family: monospace;"><span  style="font-family: serif;">party</span></span>!<br>
+    Whee!!!!&nbsp; Now we can party!<br>
     <br>
     <code>[starfighter@sl7-vm stockfighter]$ ruby first-trade.rb<br>
       {<br>
