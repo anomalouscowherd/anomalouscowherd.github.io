@@ -8,7 +8,7 @@
 <description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
 <dc:creator>StarFighter</dc:creator>
-<dc:date>2015-12-21T22:03:48+01:00</dc:date>
+<dc:date>2015-12-21T22:09:34+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
 <item>
 <link>https://anomalouscowherd.github.io/archives/2015/12/21/view_from_mount_stupid/index.html</link>
@@ -163,7 +163,7 @@
     <br>
     I read an article yesterday about <a  href="http://www.zerohedge.com/news/2015-12-19/2015-year-review-scenic-vistas-mount-stupid">Mount
       Stupid</a>:<br>
-    <img  alt="mount stupid"  src="file:///C:/Users/dave/Desktop/mount-stupid.jpg"><br>
+    <img  alt="mount stupid"  src="../images/mount-stupid.jpg"><br>
     <br>
     The premise is that people that know nothing about a subject will broadcast
     their ignorance to the world.&nbsp; So I am just climbing the front side of
