@@ -8,7 +8,7 @@
 <description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
 <dc:creator>StarFighter</dc:creator>
-<dc:date>2016-01-16T12:24:04+01:00</dc:date>
+<dc:date>2016-01-16T12:25:52+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
 <item>
 <link>https://anomalouscowherd.github.io/archives/2016/01/16/choosing_a_language/index.html</link>
@@ -133,7 +133,7 @@
       excerpt from the Wikipedia page on <a  href="https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms">Programming
         paradigms</a>:</p>
     <blockquote>
-      <h3>Parallel Computing></h3>
+      <h3>Parallel Computing></h3><br>
       Main article: <a  title="Parallel computing"  href="https://en.wikipedia.org/wiki/Parallel_computing">Parallel
           computing</a>
         <a  title="Carnegie-Mellon University"  href="https://en.wikipedia.org/wiki/Carnegie-Mellon_University">Carnegie-Mellon
