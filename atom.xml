@@ -7,7 +7,7 @@
 <subtitle type="html">A blog about my efforts to defeat the on-line trading game StockFighter</subtitle>
 <link rel="alternate" type="text/html" href="https://anomalouscowherd.github.io"/>
 <link rel="self" type="application/atom+xml" href="https://anomalouscowherd.github.io/atom.xml"/>
-<updated>2016-01-16T15:06:17+01:00</updated>
+<updated>2016-01-16T15:14:15+01:00</updated>
 <author>
 <name>StarFighter</name>
 <uri>https://anomalouscowherd.github.io</uri>
@@ -162,7 +162,7 @@ NanoBlogger
         curriculum, because it is both anti-modular and anti-parallel by its
         very nature, and hence unsuitable for a modern CS curriculum. A proposed
         new course on object-oriented design methodology will be offered at the
-        sophomore level for those students who wish to study this topic.</div>
+        sophomore level for those students who wish to study this topic.
 </p>
     </blockquote>
 </div>
