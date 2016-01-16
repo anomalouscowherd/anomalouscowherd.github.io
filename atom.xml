@@ -7,7 +7,7 @@
 <subtitle type="html">A blog about my efforts to defeat the on-line trading game StockFighter</subtitle>
 <link rel="alternate" type="text/html" href="https://anomalouscowherd.github.io"/>
 <link rel="self" type="application/atom+xml" href="https://anomalouscowherd.github.io/atom.xml"/>
-<updated>2016-01-16T11:59:29+01:00</updated>
+<updated>2016-01-16T12:06:23+01:00</updated>
 <author>
 <name>StarFighter</name>
 <uri>https://anomalouscowherd.github.io</uri>
@@ -146,15 +146,10 @@ NanoBlogger
       excerpt from the Wikipedia page on <a  href="https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms">Programming
         paradigms</a>:</p>
     <blockquote>
-      <h3  style="margin-left: 40px;"><span  id="Parallel_computing"  class="mw-headline">Parallel
-          computing</span></h3>
-      <div  style="margin-left: 40px;">
-      </div>
-      <div  class="hatnote relarticle mainarticle"  style="margin-left: 40px;">Main
-        article: <a  title="Parallel computing"  href="https://en.wikipedia.org/wiki/Parallel_computing">Parallel
+      <h3>Parallel Computing></h3>
+      Main article: <a  title="Parallel computing"  href="https://en.wikipedia.org/wiki/Parallel_computing">Parallel
           computing</a></div>
-      <div  style="margin-left: 40px;">
-        <a  class="mw-redirect"  title="Carnegie-Mellon University"  href="https://en.wikipedia.org/wiki/Carnegie-Mellon_University">Carnegie-Mellon
+        <a  title="Carnegie-Mellon University"  href="https://en.wikipedia.org/wiki/Carnegie-Mellon_University">Carnegie-Mellon
           University</a> Professor <a  title="Robert Harper (computer scientist)"
 
            href="https://en.wikipedia.org/wiki/Robert_Harper_%28computer_scientist%29">Robert
