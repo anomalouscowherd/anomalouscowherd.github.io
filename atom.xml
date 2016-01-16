@@ -7,7 +7,7 @@
 <subtitle type="html">A blog about my efforts to defeat the on-line trading game StockFighter</subtitle>
 <link rel="alternate" type="text/html" href="https://anomalouscowherd.github.io"/>
 <link rel="self" type="application/atom+xml" href="https://anomalouscowherd.github.io/atom.xml"/>
-<updated>2016-01-16T12:27:28+01:00</updated>
+<updated>2016-01-16T15:06:17+01:00</updated>
 <author>
 <name>StarFighter</name>
 <uri>https://anomalouscowherd.github.io</uri>
@@ -149,7 +149,8 @@ NanoBlogger
       <h3>Parallel Computing</h3><br>
 <p>
       Main article: <a  title="Parallel computing"  href="https://en.wikipedia.org/wiki/Parallel_computing">Parallel
-          computing</a>
+          computing</a><br><br>
+
         <a  title="Carnegie-Mellon University"  href="https://en.wikipedia.org/wiki/Carnegie-Mellon_University">Carnegie-Mellon
           University</a> Professor <a  title="Robert Harper (computer scientist)"
 
