@@ -8,7 +8,7 @@
 <description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
 <dc:creator>StarFighter</dc:creator>
-<dc:date>2016-01-16T11:57:14+01:00</dc:date>
+<dc:date>2016-01-16T11:59:30+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
 <item>
 <link>https://anomalouscowherd.github.io/archives/2016/01/16/choosing_a_language/index.html</link>
@@ -29,14 +29,10 @@
 
          title="How to be a stock broker">http://www.zerohedge.com/news/2016-01-14/so-you-want-be-citadel-trader-here-are-requirements</a></p>
     <p>Note that "human" trading is not even mentioned in the posting:</p>
-    <section  class="row module-header header-1">
-      <header  class="page-header">
-        <h1  class="title-secondary"> <a  href="https://www.citadel.com/careers/open-positions/quantitative-trading-systems-developer-undergraduate-masters-phd-postdoc/"
+        <h3>  <a  href="https://www.citadel.com/careers/open-positions/quantitative-trading-systems-developer-undergraduate-masters-phd-postdoc/"
 
              title="Citadel Job Ad">Quantitative Trading Systems Developer:
-            Undergraduate, Master’s, PhD and Postdoc (New Grads) </a></h1>
-      </header>
-    </section>
+            Undergraduate, Master’s, PhD and Postdoc (New Grads) </a></h3>
     <p><b>Location:</b> Chicago, IL</p>
     <p>Are you a natural programmer who loves to optimize and make systems more
       efficient? Do you have a sophisticated computational skillset – code

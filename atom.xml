@@ -7,7 +7,7 @@
 <subtitle type="html">A blog about my efforts to defeat the on-line trading game StockFighter</subtitle>
 <link rel="alternate" type="text/html" href="https://anomalouscowherd.github.io"/>
 <link rel="self" type="application/atom+xml" href="https://anomalouscowherd.github.io/atom.xml"/>
-<updated>2016-01-16T11:57:13+01:00</updated>
+<updated>2016-01-16T11:59:29+01:00</updated>
 <author>
 <name>StarFighter</name>
 <uri>https://anomalouscowherd.github.io</uri>
@@ -42,14 +42,10 @@ NanoBlogger
 
          title="How to be a stock broker">http://www.zerohedge.com/news/2016-01-14/so-you-want-be-citadel-trader-here-are-requirements</a></p>
     <p>Note that "human" trading is not even mentioned in the posting:</p>
-    <section  class="row module-header header-1">
-      <header  class="page-header">
-        <h1  class="title-secondary"> <a  href="https://www.citadel.com/careers/open-positions/quantitative-trading-systems-developer-undergraduate-masters-phd-postdoc/"
+        <h3>  <a  href="https://www.citadel.com/careers/open-positions/quantitative-trading-systems-developer-undergraduate-masters-phd-postdoc/"
 
              title="Citadel Job Ad">Quantitative Trading Systems Developer:
-            Undergraduate, Master’s, PhD and Postdoc (New Grads) </a></h1>
-      </header>
-    </section>
+            Undergraduate, Master’s, PhD and Postdoc (New Grads) </a></h3>
     <p><b>Location:</b> Chicago, IL</p>
     <p>Are you a natural programmer who loves to optimize and make systems more
       efficient? Do you have a sophisticated computational skillset – code
