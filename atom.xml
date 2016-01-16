@@ -7,7 +7,7 @@
 <subtitle type="html">A blog about my efforts to defeat the on-line trading game StockFighter</subtitle>
 <link rel="alternate" type="text/html" href="https://anomalouscowherd.github.io"/>
 <link rel="self" type="application/atom+xml" href="https://anomalouscowherd.github.io/atom.xml"/>
-<updated>2016-01-16T11:49:11+01:00</updated>
+<updated>2016-01-16T11:57:13+01:00</updated>
 <author>
 <name>StarFighter</name>
 <uri>https://anomalouscowherd.github.io</uri>
@@ -30,10 +30,6 @@ NanoBlogger
 
 <content type="xhtml">
 <div xmlns="http://www.w3.org/1999/xhtml">
-<h1><span  style="font-weight: bold;">Choosing a Language<br />
-      </span></h1>
-    <p><br />
-    </p>
     <p>I'm back after a hectic holiday calendar and a bad flu.  Fortunately in
       the intervening four weeks the platform has become more stable so we
       should be able to make more progress.</p>
