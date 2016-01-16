@@ -8,7 +8,7 @@
 <description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
 <dc:creator>StarFighter</dc:creator>
-<dc:date>2016-01-16T12:25:52+01:00</dc:date>
+<dc:date>2016-01-16T12:27:29+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
 <item>
 <link>https://anomalouscowherd.github.io/archives/2016/01/16/choosing_a_language/index.html</link>
@@ -133,7 +133,8 @@
       excerpt from the Wikipedia page on <a  href="https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms">Programming
         paradigms</a>:</p>
     <blockquote>
-      <h3>Parallel Computing></h3><br>
+      <h3>Parallel Computing</h3><br>
+<p>
       Main article: <a  title="Parallel computing"  href="https://en.wikipedia.org/wiki/Parallel_computing">Parallel
           computing</a>
         <a  title="Carnegie-Mellon University"  href="https://en.wikipedia.org/wiki/Carnegie-Mellon_University">Carnegie-Mellon
@@ -148,6 +149,7 @@
         very nature, and hence unsuitable for a modern CS curriculum. A proposed
         new course on object-oriented design methodology will be offered at the
         sophomore level for those students who wish to study this topic.</div>
+</p>
     </blockquote>]]>
 </description>
 </item>
