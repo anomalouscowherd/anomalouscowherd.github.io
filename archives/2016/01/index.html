@@ -291,9 +291,9 @@
             order='{"account":"'$account'","venue":"'$venue'","symbol":"'$stock'","price":'$price',"qty":'$qty',"direction":"'$direction'","orderType":"'$orderType'"}'<br />
 
             export poststring="$base_url/venues/$venue/stocks/$stock/orders"<br />
-            #export contect_type="Content-Type: application/json"<br />
-            #export headers="X-Starfighter-Authorization: $apikey"<br />
-            wget --no-check-certificate --header=$contect_type --header='X-Starfighter-Authorization: '$apikey'' --post-data=$order
+            export content_type="Content-Type: application/json"<br />
+            export headers="X-Starfighter-Authorization: $apikey"<br />
+            wget --no-check-certificate --header=$content_type --header='X-Starfighter-Authorization: '$apikey'' --post-data=$order
             "$poststring"</code><br />
             <br />
             <br />

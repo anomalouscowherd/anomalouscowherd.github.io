@@ -8,7 +8,7 @@
 <description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
 <dc:creator>StarFighter</dc:creator>
-<dc:date>2016-01-18T19:02:18+01:00</dc:date>
+<dc:date>2016-01-18T19:06:59+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
 <item>
 <link>https://anomalouscowherd.github.io/archives/2016/01/18/how_to_debug_encrypted_api_calls/index.html</link>
@@ -215,9 +215,9 @@ http://sourceforge.net/p/ngrep/bugs/_discuss/thread/ee4219d2/db82/attachment/pat
       export
 order='{"account":"'$account'","venue":"'$venue'","symbol":"'$stock'","price":'$price',"qty":'$qty',"direction":"'$direction'","orderType":"'$orderType'"}'<br>export
       poststring="$base_url/venues/$venue/stocks/$stock/orders"<br>
-      #export contect_type="Content-Type: application/json"<br>
-      #export headers="X-Starfighter-Authorization: $apikey"<br>
-      wget --no-check-certificate --header=$contect_type
+      export content_type="Content-Type: application/json"<br>
+      export headers="X-Starfighter-Authorization: $apikey"<br>
+      wget --no-check-certificate --header=$content_type
       --header='X-Starfighter-Authorization: '$apikey'' --post-data=$order
       "$poststring"</code><br>
     <br>

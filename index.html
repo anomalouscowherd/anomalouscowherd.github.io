@@ -155,7 +155,7 @@
         <!-- Total categories: 1<br /> -->
         Total entries: 5<br />
         Last entry: 2016-01-18 15:59:35<br />
-        Last updated: 2016-01-18 19:02:18
+        Last updated: 2016-01-18 19:07:00
       </div>
       <div class="sidetitle"></div>
       <div class="powered">
@@ -357,9 +357,9 @@
               order='{"account":"'$account'","venue":"'$venue'","symbol":"'$stock'","price":'$price',"qty":'$qty',"direction":"'$direction'","orderType":"'$orderType'"}'<br />
 
               export poststring="$base_url/venues/$venue/stocks/$stock/orders"<br />
-              #export contect_type="Content-Type: application/json"<br />
-              #export headers="X-Starfighter-Authorization: $apikey"<br />
-              wget --no-check-certificate --header=$contect_type --header='X-Starfighter-Authorization: '$apikey''
+              export content_type="Content-Type: application/json"<br />
+              export headers="X-Starfighter-Authorization: $apikey"<br />
+              wget --no-check-certificate --header=$content_type --header='X-Starfighter-Authorization: '$apikey''
               --post-data=$order "$poststring"</code><br />
               <br />
               <br />
