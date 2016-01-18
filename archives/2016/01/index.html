@@ -71,7 +71,7 @@
         </tr>
         <tr>
           <td><span class="calendar">17</span></td>
-          <td><span class="calendar">18</span></td>
+          <td><span class="calendar"><a href="../../../archives/2016/01/index.html#e2016-01-18T15_59_35.txt">18</a></span></td>
           <td><span class="calendar">19</span></td>
           <td><span class="calendar">20</span></td>
           <td><span class="calendar">21</span></td>
@@ -99,6 +99,236 @@
         <a href="../../../index.html">Main</a> &gt; <a href="../../../archives/index.html">Archives</a> &gt; <a href=
         "../../../archives/2016/index.html">2016</a> &gt;<br />
         <a href="../../../archives/2015/12/index.html">&lt;</a> 01
+      </div>
+      <div class="item">
+        <a id="e2016-01-18T15_59_35.txt"></a>
+        <h2 class="date">2016-01-18 15:59:35</h2>
+        <div class="blogbody">
+          <h3 class="title">How to debug encrypted API calls</h3>
+          <div class="item-description">
+            <p>Debugging SSL API calls.</p>
+            <p><br /></p>I am writing this post in the hopes that someone doing a search will find useful information on debugging
+            encrypted API calls.<br />
+            <br />
+            How do you debug a request if the conversation is encrypted?&nbsp; This isn't about figuring what version of TLS the
+            server supports.&nbsp; It is about the content of the request not being recognized by the API.<br />
+            <br />
+            My technique is to intercept the conversation between the browser and the server and try to duplicate a working
+            request.&nbsp; You have to have a functioning example API call to make this work, but in this case we have the API docs
+            to work with.&nbsp; The example ruby code for a bid or offer is <a title="first-trade.rb" href=
+            "https://starfighter.readme.io/docs/getting-started">here:<br />
+            https://starfighter.readme.io/docs/getting-started</a><br />
+            <br />
+            The mechanics of this request can be investigated with <a href="http://sourceforge.net/projects/ngrep/">ngrep:<br />
+            http://sourceforge.net/projects/ngrep/</a><br />
+            <br />
+            This is a tool like tcpdump that produces easy to read network captures.&nbsp; Install it like so:<br />
+            <br />
+            Download it:<br />
+            <br />
+            <code>[root@sl7-vm ~]# wget
+            "http://downloads.sourceforge.net/project/ngrep/ngrep/1.45/ngrep-1.45.tar.bz2?r=http%3A%2F%2Fngrep.sourceforge.net%2Fdownload.html&amp;ts=1452879259&amp;use_mirror=netassist"</code><br />
+
+            <br />
+            unpack it:<br />
+            <br />
+            <code>[root@sl7-vm ngrep]# tar xvfj ngrep-1.45.tar.bz2</code><br />
+            <br />
+            <br />
+            Patch it:<br />
+            <code>[root@sl7-vm ngrep-1.45]# wget
+            http://sourceforge.net/p/ngrep/bugs/_discuss/thread/ee4219d2/db82/attachment/patch<br />
+            --2016-01-15 18:38:18--&nbsp; http://sourceforge.net/p/ngrep/bugs/_discuss/thread/ee4219d2/db82/attachment/patch<br />
+            Resolving sourceforge.net (sourceforge.net)... 216.34.181.60<br />
+            Connecting to sourceforge.net (sourceforge.net)|216.34.181.60|:80... connected.<br />
+            HTTP request sent, awaiting response... 200 OK<br />
+            Length: unspecified [application/octet-stream]<br />
+            Saving to: ‘patch’<br />
+            <br />
+            [root@sl7-vm ngrep-1.45]# patch &lt; ./patch<br />
+            [root@sl7-vm ngrep-1.45]# autoconf configure.in &gt; configure<br /></code><br />
+            Install the prerequisites:<br />
+            <code>[root@sl7-vm ngrep-1.45]# yum install libpcap-devel</code><br />
+            <br />
+            Configure it, build it, and install it:<br />
+            <code>[root@sl7-vm ngrep-1.45]# ./configure &amp;&amp; make &amp;&amp; make install</code><br />
+            <br />
+            you should see this:<br />
+            <br />
+            <code>gcc -g -O2 -DLINUX -DHAVE_CONFIG_H&nbsp; -D_BSD_SOURCE=1 -D__FAVOR_BSD=1&nbsp; -I. -I/usr/include&nbsp; -g -c
+            ngrep.c<br />
+            gcc -g -O2 -DLINUX -DHAVE_CONFIG_H&nbsp; -D_BSD_SOURCE=1 -D__FAVOR_BSD=1&nbsp; -L/usr/lib -s -o ngrep ngrep.o&nbsp;
+            regex-0.12/regex.o -lpcap<br />
+            ./install-sh -c -m 0755 ngrep&nbsp; ///bin/ngrep<br />
+            ./install-sh -c -m 0644 ngrep.8 ///share/man/man8/ngrep.8<br /></code><br />
+            Got to love that autoconf.&nbsp; Three slashes are better than one.<br />
+            <br />
+            So what do we do with it?&nbsp; This is the tricky part.&nbsp; You are going to need stunnel for this part:<br />
+            <code>[root@sl7-vm ~]# yum install stunnel<br /></code><br />
+            make a certificate:<br />
+            <code>[root@sl7-vm mitm]# openssl req -batch -new -x509 -days 365 -nodes -out server.pem -keyout
+            server.pem</code><br />
+            <br />
+            now create a config file that looks like this:<br />
+            <br />
+            <code>[root@sl7-vm mitm]# cat stunnel-mitm-proxy.conf<br />
+            debug = 3<br />
+            #foreground = yes<br />
+            pid =<br />
+            <br />
+            [server]<br />
+            client = no<br />
+            cert= ./server.pem<br />
+            accept = 127.0.0.1:443<br />
+            connect = 127.0.0.1:4434<br />
+            <br />
+            [client]<br />
+            client = yes<br />
+            accept = 127.0.0.1:4434<br />
+            connect = api.stockfighter.io:443</code><br />
+            <br />
+            <br />
+            This will create a Man In The Middle proxy server that will permit you to inspect traffic that would otherwise be
+            end-to-end encrypted.&nbsp; In order to use this proxy server you will need to either change the address you post to in
+            your code to 127.0.0.1 or alter the /etc/hosts file like so:<br />
+            <code>127.0.0.1 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pi.stockfighter.io<br /></code><br />
+            This looks like something I will forget, so I opted to change my code.<br />
+            <br />
+            You now need to run the proxy as root:<br />
+            <code>stunnel stunnel-mitm-proxy.conf</code><br />
+            <br />
+            you can now start ngrep like so:<br />
+            <code>ngrep -W byline -d lo port 4434</code><br />
+            <br />
+            This will look like nothing is happening.&nbsp; That is fine just start your request in another window:<br />
+            <br />
+            <code>[starfighter@sl7-vm stockfighter]$ ruby first-trade.rb<br /></code><br />
+            You should see something like this:<br />
+            <br />
+            <code>#########<br />
+            T 127.0.0.1:43643 -&gt; 127.0.0.1:4434 [AP]<br />
+            POST /ob/api/venues/AIDEX/stocks/LPEI/orders HTTP/1.1.<br />
+            User-Agent: Wget/1.14 (linux-gnu).<br />
+            Accept: */*.<br />
+            Host: 127.0.0.1.<br />
+            Connection: Keep-Alive.<br />
+            Content-Type: application/x-www-form-urlencoded.<br />
+            Content-Length: 117.<br />
+            X-Starfighter-Authorization: REDACTED.<br />
+            .<br />
+            <br />
+            ##<br />
+            T 127.0.0.1:43643 -&gt; 127.0.0.1:4434 [AP]<br />
+            {"account":"REDACTED","venue":"AIDEX","symbol":"LPEI","price":9000,"qty":100,"direction":"buy","orderType":"limit"}<br />
+
+            ##<br />
+            T 127.0.0.1:4434 -&gt; 127.0.0.1:43643 [AP]<br />
+            HTTP/1.1 200 OK.<br />
+            Server: nginx/1.8.0.<br />
+            Date: Wed, 20 Jan 2016 14:59:33 GMT.<br />
+            Content-Type: application/json.<br />
+            Content-Length: 289.<br />
+            Connection: keep-alive.<br />
+            Strict-Transport-Security: max-age=31536000; includeSubdomains.<br />
+            .<br />
+            {<br />
+            &nbsp; "ok": true,<br />
+            &nbsp; "symbol": "LPEI",<br />
+            &nbsp; "venue": "AIDEX",<br />
+            &nbsp; "direction": "buy",<br />
+            &nbsp; "originalQty": 100,<br />
+            &nbsp; "qty": 100,<br />
+            &nbsp; "price": 9000,<br />
+            &nbsp; "orderType": "limit",<br />
+            &nbsp; "id": 6681,<br />
+            &nbsp; "account": "REDACTED",<br />
+            &nbsp; "ts": "2016-01-20T14:59:11.212784703Z",<br />
+            &nbsp; "fills": [],<br />
+            &nbsp; "totalFilled": 0,<br />
+            &nbsp; "open": true<br />
+            }</code><br />
+            <br />
+            If you are like me, you tried to do the same thing with wget and you saw this:<br />
+            &nbsp;<code>{"ok":false,"error":"json: cannot unmarshal string into Go value of type main.OrderDesc"}</code><br />
+            <br />
+            This puzzled me for a bit, but read on for a solution.&nbsp; When I ran my wget command, using what I thought was the
+            correct syntax&nbsp; from the man page for wget, I got this in the ngrep window:<br />
+            <code>########<br />
+            T 127.0.0.1:43625 -&gt; 127.0.0.1:4434 [AP]<br />
+            POST /ob/api/venues/JOGDEX/stocks/PIZ/orders HTTP/1.1.<br />
+            User-Agent: Wget/1.14 (linux-gnu).<br />
+            Accept: */*.<br />
+            Host: 127.0.0.1.<br />
+            Connection: Keep-Alive.<br />
+            Content-Type: application/x-www-form-urlencoded.<br />
+            Content-Length: 94.<br />
+            X-Starfighter-Authorization: REDACTED.<br />
+            .<br />
+            <br />
+            ##<br />
+            T 127.0.0.1:43625 -&gt; 127.0.0.1:4434 [AP]<br />
+            "account=REDACTED&amp;venue=JOGDEX&amp;symbol=PIZ&amp;price=5500&amp;qty=100&amp;direction=buy&amp;orderType=limit"<br />
+
+            ##<br />
+            T 127.0.0.1:4434 -&gt; 127.0.0.1:43625 [AP]<br />
+            HTTP/1.1 404 Not Found.<br />
+            Server: nginx/1.8.0.<br />
+            Date: Wed, 20 Jan 2016 14:39:38 GMT.<br />
+            Content-Type: text/plain; charset=utf-8.<br />
+            Content-Length: 62.<br />
+            Connection: keep-alive.<br />
+            .</code><br />
+            <br />
+            So I set to work altering my code to look like the functional ruby script:<br />
+            <code><br />
+            #export base_url="https://api.stockfighter.io/ob/api"<br />
+            export base_url="https://127.0.0.1/ob/api"<br />
+            <br />
+            # Set up the order<br />
+            # must look like this:<br />
+            #
+            {"account":"REDACTED","venue":"AIDEX","symbol":"LPEI","price":5500,"qty":25,"direction":"buy","orderType":"limit"}<br />
+
+            <br />
+            export
+            order='{"account":"'$account'","venue":"'$venue'","symbol":"'$stock'","price":'$price',"qty":'$qty',"direction":"'$direction'","orderType":"'$orderType'"}'<br />
+
+            export poststring="$base_url/venues/$venue/stocks/$stock/orders"<br />
+            #export contect_type="Content-Type: application/json"<br />
+            #export headers="X-Starfighter-Authorization: $apikey"<br />
+            wget --no-check-certificate --header=$contect_type --header='X-Starfighter-Authorization: '$apikey'' --post-data=$order
+            "$poststring"</code><br />
+            <br />
+            <br />
+            That looks pretty gruesome, but it works.&nbsp; This is the result:<br />
+            <br />
+            <code>&nbsp;{<br />
+            &nbsp; "ok": true,<br />
+            &nbsp; "symbol": "LPEI",<br />
+            &nbsp; "venue": "AIDEX",<br />
+            &nbsp; "direction": "buy",<br />
+            &nbsp; "originalQty": 100,<br />
+            &nbsp; "qty": 100,<br />
+            &nbsp; "price": 9000,<br />
+            &nbsp; "orderType": "limit",<br />
+            &nbsp; "id": 6681,<br />
+            &nbsp; "account": "REDACTED",<br />
+            &nbsp; "ts": "2016-01-20T14:59:11.212784703Z",<br />
+            &nbsp; "fills": [],<br />
+            &nbsp; "totalFilled": 0,<br />
+            &nbsp; "open": true<br />
+            }</code><br />
+            <br />
+            Don't forget to change your code or the /etc/hosts file back.<br />
+            <br />
+          </div>
+        </div>
+        <div class="posted">
+          <br />
+          Posted by <span class="item-creator">StarFighter</span> | <a class="link" href=
+          "../../../archives/2016/01/18/how_to_debug_encrypted_api_calls/index.html">Permanent link</a> 
+          <!-- <br /><a href="../../../archives/2016/01/18/how_to_debug_encrypted_api_calls/index.html#comments">Comments</a> -->
+        </div>
       </div>
       <div class="item">
         <a id="e2016-01-16T11_44_53.txt"></a>
