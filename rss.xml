@@ -8,7 +8,7 @@
 <description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
 <dc:creator>StarFighter</dc:creator>
-<dc:date>2016-01-18T16:01:27+01:00</dc:date>
+<dc:date>2016-01-18T16:03:45+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
 <item>
 <link>https://anomalouscowherd.github.io/archives/2016/01/18/how_to_debug_encrypted_api_calls/index.html</link>
@@ -113,7 +113,7 @@ http://sourceforge.net/p/ngrep/bugs/_discuss/thread/ee4219d2/db82/attachment/pat
     inspect traffic that would otherwise be end-to-end encrypted.&nbsp; In order
     to use this proxy server you will need to either change the address you post
     to in your code to 127.0.0.1 or alter the /etc/hosts file like so:<br>
-    <code>127.0.0.1 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pi.stockfighter.io<br>
+    <code>127.0.0.1 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; api.stockfighter.io<br>
     </code> <br>
     This looks like something I will forget, so I opted to change my code.<br>
     <br>
