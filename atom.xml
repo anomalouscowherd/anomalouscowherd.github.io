@@ -7,7 +7,7 @@
 <subtitle type="html">A blog about my efforts to defeat the on-line trading game StockFighter</subtitle>
 <link rel="alternate" type="text/html" href="https://anomalouscowherd.github.io"/>
 <link rel="self" type="application/atom+xml" href="https://anomalouscowherd.github.io/atom.xml"/>
-<updated>2016-01-18T16:03:44+01:00</updated>
+<updated>2016-01-18T19:02:17+01:00</updated>
 <author>
 <name>StarFighter</name>
 <uri>https://anomalouscowherd.github.io</uri>
@@ -146,13 +146,11 @@ http://sourceforge.net/p/ngrep/bugs/_discuss/thread/ee4219d2/db82/attachment/pat
     <code>#########<br>
       T 127.0.0.1:43643 -&gt; 127.0.0.1:4434 [AP]<br>
       POST /ob/api/venues/AIDEX/stocks/LPEI/orders HTTP/1.1.<br>
-      User-Agent: Wget/1.14 (linux-gnu).<br>
-      Accept: */*.<br>
-      Host: 127.0.0.1.<br>
-      Connection: Keep-Alive.<br>
-      Content-Type: application/x-www-form-urlencoded.<br>
-      Content-Length: 117.<br>
       X-Starfighter-Authorization: REDACTED.<br>
+      Connection: close.<br>
+      Host: 127.0.0.1.<br>
+      Content-Length: 116.<br>
+      Content-Type: application/x-www-form-urlencoded.<br>
       .<br>
       <br>
       ##<br>
