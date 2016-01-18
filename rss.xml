@@ -8,7 +8,7 @@
 <description>A blog about my efforts to defeat the on-line trading game StockFighter</description>
 <dc:language>en-us</dc:language>
 <dc:creator>StarFighter</dc:creator>
-<dc:date>2016-01-18T15:59:36+01:00</dc:date>
+<dc:date>2016-01-18T16:01:27+01:00</dc:date>
 <admin:generatorAgent rdf:resource="http://nanoblogger.sourceforge.net" />
 <item>
 <link>https://anomalouscowherd.github.io/archives/2016/01/18/how_to_debug_encrypted_api_calls/index.html</link>
@@ -17,10 +17,7 @@
 <dc:date>2016-01-18T15:59:35+01:00</dc:date>
 <dc:creator>StarFighter</dc:creator>
 <description>
-<![CDATA[    <p>Debugging SSL API calls.</p>
-    <p><br>
-    </p>
-    I am writing this post in the hopes that someone doing a search will find
+<![CDATA[    I am writing this post in the hopes that someone doing a search will find
     useful information on debugging encrypted API calls. <br>
     <br>
     How do you debug a request if the conversation is encrypted?&nbsp; This
